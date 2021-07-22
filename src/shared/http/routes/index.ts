@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { authorRouter } from '@modules/authors/routes';
 
 const router = Router();
 
@@ -7,5 +8,7 @@ router.get('/', (req, res) => {
     message: 'Olá mundo',
   });
 });
+
+router.use('/autores', authorRouter);
 
 export { router };
