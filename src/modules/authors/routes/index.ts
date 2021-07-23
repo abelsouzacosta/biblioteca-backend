@@ -10,4 +10,6 @@ authorRouter.post('/', controller.create);
 
 authorRouter.delete('/:id', controller.delete);
 
+authorRouter.put('/:id', controller.update);
+
 export { authorRouter };

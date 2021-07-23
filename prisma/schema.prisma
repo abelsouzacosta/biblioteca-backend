@@ -15,4 +15,6 @@ model Author {
   name        String
   date_birth  DateTime
   description String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
 }
