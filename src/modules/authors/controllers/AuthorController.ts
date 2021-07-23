@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import CreateAuthorService from '../services/CreateAuthorService';
+import DeleteAuthorService from '../services/DeleteAuthorService';
 import ListAuthorService from '../services/ListAuthorService';
 
 class AuthorController {
@@ -19,6 +20,16 @@ class AuthorController {
     const author = await create.execute({ name, description, date_birth });
 
     return response.status(200).json(author);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const delete_author = new DeleteAuthorService();
+
+    const deleted = await delete_author.execute({ id });
+
+    return response.status(200).json(deleted);
   }
 }
 

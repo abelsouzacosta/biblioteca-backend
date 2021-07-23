@@ -8,4 +8,6 @@ authorRouter.get('/', controller.index);
 
 authorRouter.post('/', controller.create);
 
+authorRouter.delete('/:id', controller.delete);
+
 export { authorRouter };
