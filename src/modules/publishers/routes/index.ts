@@ -8,4 +8,6 @@ publisherRouter.get('/', controller.index);
 
 publisherRouter.post('/', controller.create);
 
+publisherRouter.put('/:id', controller.update);
+
 export { publisherRouter };
