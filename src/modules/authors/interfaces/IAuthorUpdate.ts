@@ -1,6 +1,6 @@
 export interface IAuthorUpdate {
   id: string;
   name?: string;
-  date_birth?: string;
+  date_birth?: Date;
   description?: string;
 }

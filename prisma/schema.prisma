@@ -17,4 +17,13 @@ model Author {
   description String
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now())
+
+  @@map("Authors")
+}
+
+model Publisher {
+  id   String @id @default(uuid())
+  name String @unique
+
+  @@map("Publishers")
 }
