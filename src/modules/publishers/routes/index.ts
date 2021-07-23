@@ -4,6 +4,8 @@ import { PublisherController } from '../controllers/PublisherController';
 const publisherRouter = Router();
 const controller = new PublisherController();
 
+publisherRouter.get('/', controller.index);
+
 publisherRouter.post('/', controller.create);
 
 export { publisherRouter };
