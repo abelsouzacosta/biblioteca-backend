@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import CreateAuthorService from '../services/CreateAuthorService';
 import DeleteAuthorService from '../services/DeleteAuthorService';
 import ListAuthorService from '../services/ListAuthorService';
+import UpdateAuthorService from '../services/UpdateAuthorService';
 
 class AuthorController {
   public async index(request: Request, response: Response): Promise<Response> {
@@ -30,6 +31,17 @@ class AuthorController {
     const deleted = await delete_author.execute({ id });
 
     return response.status(200).json(deleted);
+  }
+
+  public async update(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const { name, description, date_birth } = request.body;
+
+    const update = new UpdateAuthorService();
+
+    const author = await update.execute({ id, name, description, date_birth });
+
+    return response.status(200).json(author);
   }
 }
 
