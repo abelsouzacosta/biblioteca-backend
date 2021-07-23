@@ -5,7 +5,7 @@ import { IAuthorDelete } from '../interfaces/IAuthorDelete';
 export default class DeleteAuthorService {
   public async execute({ id }: IAuthorDelete): Promise<boolean | undefined> {
     // verifica se o autor existe
-    const author = client.author.findFirst({
+    const author = await client.author.findFirst({
       where: {
         id,
       },
