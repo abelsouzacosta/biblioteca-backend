@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import CreatePublisherService from '../services/CreatePublisherService';
+import DeletePublisherService from '../services/DeletePublisherService';
 import ListPublishersService from '../services/ListPublishersService';
 import UpdatePublisherService from '../services/UpdatePublisherService';
 
@@ -31,6 +32,16 @@ class PublisherController {
     const publisher = await update.execute({ id, name });
 
     return response.status(200).json(publisher);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const delete_publisher = new DeletePublisherService();
+
+    const deleted = await delete_publisher.execute({ id });
+
+    return response.status(200).json(deleted);
   }
 }
 

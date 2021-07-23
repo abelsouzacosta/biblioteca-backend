@@ -27,8 +27,10 @@ export default class UpdatePublisherService {
 
     // se os ids da editora encontrada pelo nome e encontrada pelo id
     // forem diferentes significa que há uma tentativa de duplicação
-    if (getPublisherById.id !== getPublisherByName?.id)
-      throw new ApplicationError('Could not update, duplicate entry');
+    if (getPublisherByName?.id) {
+      if (getPublisherById.id !== getPublisherByName.id)
+        throw new ApplicationError('Could not update, duplacete entry');
+    }
 
     const publisher = await client.publisher.update({
       where: {
